@@ -1,0 +1,31 @@
+<!--@subject {{var store.getFrontendName()}}: Review us and get an 15% off! @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td>
+            <h2>Review us and get an 15% off!</h2>
+            <p>
+                Hello {{var customer_name}},Thank you for purchasing, hope you enjoy shopping with us.
+            </p>
+            <p>
+                Congratulations, you get an extra 15% off coupon for next purchase.{{if coupon_code}} Code: {{var coupon_code}} ( It can be uesd at www.aosom.com before {{var coupon_period}}.){{/if}}
+            </p>
+            <p>
+                If you are satisfied with our products and services,please review it on <a href="https://search.google.com/local/writereview?placeid=ChIJy3LaiXVtlVQRfLA2OiWHMRc">https://search.google.com/local/writereview?placeid=ChIJy3LaiXVtlVQRfLA2OiWHMRc</a>
+            </p>
+
+            <p>
+                If you are not happy with us, please feel free to contact us at anytime, our customer representatives will be happy to help.
+            </p>
+
+            <p>Email us: <a href="mailto:customerservice@aosom.com">customerservice@aosom.com</a><br>
+                Phone: +1-877-644-9366
+            </p>
+
+        </td>
+    </tr>
+</table>
+{{var store.getUnsubscriptionLink()|html_entity_decode}}
+{{template config_path="design/email/footer_template"}}

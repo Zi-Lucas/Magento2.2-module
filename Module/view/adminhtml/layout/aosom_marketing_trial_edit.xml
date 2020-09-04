@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Aosom_Marketing::css/style.css" />
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Aosom\Marketing\Block\Adminhtml\Trial\Edit\Tabs" name="marketing_trial_edit_tab">
+                <block class="Aosom\Marketing\Block\Adminhtml\Trial\Edit\Tab\Main" name="marketing_trial_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">marketing_trial_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Aosom\Marketing\Block\Adminhtml\Trial\Edit" name="trial_edit"/>
+            <block class="Magento\Framework\View\Element\Template" name="trial_edit_script" template="Aosom_Marketing::script.phtml" after="-"></block>
+        </referenceContainer>
+    </body>
+</page>

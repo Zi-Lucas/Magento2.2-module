@@ -1,0 +1,46 @@
+<script type="text/javascript">
+	require([
+		'jquery',
+	], function(jQuery){
+		(function($) {
+			$(document).ready(function () {
+				setTimeout(setMainGereral, 1000);
+				$("#piece_general_piece_type").change(function(){
+					setMainGereral();
+				});
+			});
+		})(jQuery);
+	});
+	
+	function setMainGereral(){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				var pieceType = $("#piece_general_piece_type").val();
+				if(pieceType=="category" || pieceType=="activity_category"){
+					$('#piece_general_general_fieldset .field-bimg').hide();
+					$('#piece_general_general_fieldset .field-bi_width').hide();
+                    $('#piece_general_general_fieldset .field-simg').hide();
+                    $('#piece_general_general_fieldset .field-si_width').hide();
+				}else if(pieceType=="product"){
+                    $('#piece_general_general_fieldset .field-bimg').hide();
+                    $('#piece_general_general_fieldset .field-bi_width').show();
+                    $('#piece_general_general_fieldset .field-simg').hide();
+                    $('#piece_general_general_fieldset .field-si_width').show();
+                }else if(pieceType=="block"){
+                    $('#piece_general_general_fieldset .field-bimg').hide();
+                    $('#piece_general_general_fieldset .field-bi_width').hide();
+                    $('#piece_general_general_fieldset .field-simg').hide();
+                    $('#piece_general_general_fieldset .field-si_width').hide();
+                }
+				else{
+                    $('#piece_general_general_fieldset .field-bimg').show();
+                    $('#piece_general_general_fieldset .field-bi_width').hide();
+                    $('#piece_general_general_fieldset .field-simg').show();
+                    $('#piece_general_general_fieldset .field-si_width').hide();
+				}
+			})(jQuery);
+		});
+	}
+</script>

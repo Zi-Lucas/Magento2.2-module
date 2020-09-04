@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/merge/marketing/trials" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="homeMerge"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/merge/marketing/trial/reports" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="reportsHomeMerge"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/merge/marketing/trial/reports/:reportId" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="reportSubmitMerge"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/marketing/trial/reports" method="POST">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="addReport"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/marketing/trial/reports/:reportId" method="PUT">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="modifyReport"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/marketing/trial/reports/:reportId" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="getReport"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/marketing/trial/reports" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="getReports"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/marketing/trial/reports/product/:product_id" method="GET">
+        <service class="Aosom\Marketing\Model\TrialRepository" method="getProductReport"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="aosom_marketing_trial_report_invite_email_template" label="Trial Report Invite" file="trial_report_invite_email_template.html" type="html" module="Aosom_Marketing" area="adminhtml"/>
+    <template id="aosom_marketing_trial_report_pass_email_template" label="Trial Report Pass" file="trial_report_pass_email_template.html" type="html" module="Aosom_Marketing" area="adminhtml"/>
+    <template id="aosom_marketing_trial_report_no_pass_email_template" label="Trial Report No Pass" file="trial_report_no_pass_email_template.html" type="html" module="Aosom_Marketing" area="adminhtml"/>
+</config>
+

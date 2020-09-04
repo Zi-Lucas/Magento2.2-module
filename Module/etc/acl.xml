@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::marketing">
+                    <resource id="Aosom_Marketing::aosom_marketing"  title="Aosom Marketing" translate="title" sortOrder="10">
+                        <resource id="Aosom_Marketing::trial" title="50% OFF Trial" translate="title" sortOrder="10" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Aosom_Log::aosom_config" title="Aosom Configuration">
+                                <resource id="Aosom_Marketing::config" title="Aosom Marketing Config" />
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_item_set_product">
+        <observer name="set_item_about_trial_attribute" instance="Aosom\Marketing\Observer\AddTrialAttributeObserver" />
+    </event>
+    <event name="sales_quote_item_qty_set_after">
+        <observer name="qty_set_after_set_item_about_trial_attribute" instance="Aosom\Marketing\Observer\SetQtyAddTrialAttributeObserver" />
+    </event>
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="set_trial_attribute_order_item" instance="Aosom\Marketing\Observer\SetTrialAttributeOrderItemObserver" />
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="check_trial_stock" instance="Aosom\Marketing\Observer\CheckTrialStockObserver" />
+    </event>
+    <event name="order_cancel_after">
+        <observer name="reset_trial_stock" instance="Aosom\Marketing\Observer\ResetTrialStockObserver" />
+    </event>
+</config>

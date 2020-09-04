@@ -1,0 +1,75 @@
+<?php
+/** @var \Aosom\Marketing\Block\Adminhtml\Trial\Preview $block */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$block =$objectManager->get('Aosom\Marketing\Block\Adminhtml\Trial\Preview');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><?= $block->escapeHtml(__('Trial Report Preview')) ?></title>
+    <style type="text/css">
+        .center{
+            margin:0 auto;
+            width:80%;
+            height:auto;
+            border:1px solid #cacaca
+        }
+        .title {
+            word-wrap:break-word
+            padding: 20px;
+            width: 100%;
+        }
+        .author {
+            padding: 20px;
+        }
+        .content {
+            word-wrap:break-word
+            padding: 20px;
+            width: 100%;
+        }
+        .video {
+            padding: 20px;
+        }
+        .images {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<?php
+$item = $block->getTrialReport();
+$data = $item->getData();
+?>
+<div class="center">
+    <div class="title">
+        <h1><?= $data['title']?></h1>
+    </div>
+    <div class="author">
+        <span><?= $data['updated_at']?></span>
+        <span><?= $data['customer_name']?></span>
+    </div>
+    <div class="content">
+        <?= $data['content']?>
+    </div>
+    <div class="video">
+        <iframe
+            width="560"
+            height="315"
+            src="<?= $data['video']?>"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="">
+        </iframe>
+    </div>
+    <div class="images">
+        <?php
+            $imgs = unserialize($data['imgs']);
+            foreach ($imgs as $img){
+                echo "<img width='400px' height='400px' src='".$img."'>";
+            }
+        ?>
+    </div>
+</div>
+</body>
+</html>

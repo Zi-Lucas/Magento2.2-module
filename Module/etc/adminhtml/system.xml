@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="aosom_marketing" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Aosom Marketing Setting</label>
+            <tab>aosom</tab>
+            <resource>Aosom_Marketing::config</resource>
+            <group id="trial" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>50% OFF Trial</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Yesno</comment>
+                </field>
+                <field id="report_invite_email_template" translate="label comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="0">
+                    <label>Invite Trial Report Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="report_pass_email_template" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="0">
+                    <label>Pass Trial Report Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="report_no_pass_email_template" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="0">
+                    <label>No Pass Trial Report Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="trial_rule_cms_id" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Trial Rule Cms Piece ID</label>
+                </field>
+                <field id="trial_protocol_cms_id" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Trial Protocol Cms Piece ID</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

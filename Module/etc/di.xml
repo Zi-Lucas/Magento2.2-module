@@ -1,0 +1,81 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Aosom\Marketing\Api\Data\TrialInterface" type="Aosom\Marketing\Model\Trial" />
+    <preference for="\Aosom\Marketing\Api\Data\TrialRepositoryInterface" type="Aosom\Marketing\Model\TrialRepository" />
+    <preference for="Aosom\Marketing\Api\Data\TestreportInterface" type="Aosom\Marketing\Model\Testreport" />
+    <preference for="\Aosom\Marketing\Api\Data\TestreportRepositoryInterface" type="Aosom\Marketing\Model\TestreportRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="aosom_marketing_trial_listing_data_source" xsi:type="string">Aosom\Marketing\Model\ResourceModel\Trial\Grid\Collection</item>
+                <item name="aosom_marketing_testreport_listing_data_source" xsi:type="string">Aosom\Marketing\Model\ResourceModel\Testreport\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aosom\Marketing\Model\ResourceModel\Trial\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">aosom_trial_report</argument>
+            <argument name="eventPrefix" xsi:type="string">aosom_marketing_trial_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">trial_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Aosom\Marketing\Model\ResourceModel\Trial</argument>
+        </arguments>
+    </type>
+    <virtualType name="TrialGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="TrialGridDataProvider" type="Aosom\Marketing\Ui\DataProvider\Trial\TrialDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Aosom\Marketing\Model\ResourceModel\Trial\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">TrialGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="have_trial" xsi:type="string">sales_order.have_trial</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+
+    <preference for="Aosom\Marketing\Api\Data\TestreportInterface" type="Aosom\Marketing\Model\Testreport" />
+    <preference for="\Aosom\Marketing\Api\Data\TestreportRepositoryInterface" type="Aosom\Marketing\Model\TestreportRepository" />
+<!--    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">-->
+<!--        <arguments>-->
+<!--            <argument name="collections" xsi:type="array">-->
+<!--                <item name="aosom_marketing_testreport_listing_data_source" xsi:type="string">Aosom\Marketing\Model\ResourceModel\Testreport\Grid\Collection</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
+    <type name="Aosom\Marketing\Model\ResourceModel\Testreport\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cet_report</argument>
+            <argument name="eventPrefix" xsi:type="string">aosom_marketing_testreport_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">testreport_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Aosom\Marketing\Model\ResourceModel\Testreport</argument>
+        </arguments>
+    </type>
+    <virtualType name="TestreportGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="TestreportGridDataProvider" type="Aosom\Marketing\Ui\DataProvider\Testreport\TestreportDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Aosom\Marketing\Model\ResourceModel\Testreport\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">TestreportGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>

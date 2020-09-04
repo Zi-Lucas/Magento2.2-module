@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Aosom_Marketing::aosom_marketing"
+             title="Aosom Marketing"
+             module="Aosom_Marketing"
+             sortOrder="10"
+             parent="Magento_Backend::marketing"
+             resource="Aosom_Marketing::aosom_marketing"
+        />
+
+        <add id="Aosom_Marketing::amarketing_trial"
+             title="50% OFF Trial"
+             module="Aosom_Marketing"
+             sortOrder="0"
+             action="aosom_marketing/trial"
+             resource="Aosom_Marketing::trial"
+             parent="Aosom_Marketing::aosom_marketing"
+        />
+
+        <add id="Aosom_Marketing::amarketing_testreport"
+             title="Customer experience test report"
+             module="Aosom_Marketing"
+             sortOrder="1"
+             action="aosom_marketing/testreport"
+             resource="Aosom_Marketing::testreport"
+             parent="Aosom_Marketing::aosom_marketing"
+        />
+    </menu>
+</config>
